@@ -1,0 +1,100 @@
+<% include header.ejs %>
+    <script>
+        function pageRedirect() {
+            alert("You have successfully registered!");
+            window.location.replace("/register");
+        }
+
+        function regi() {
+            $('#cam_col, #reg_col').hide();
+            $('#final').show();
+        }
+
+        function buttonclick() {
+            if (document.forms["regform"]["name"].value == '' || document.forms["regform"]["aadhaar"].value == '' || document.forms["regform"]["password"].value == '' || document.forms["regform"]["gender"].value == 'Others') {
+                window.alert("Please fill all fields.");
+            }
+            else {
+                regi();
+                document.getElementById('regform').submit();
+                setTimeout("pageRedirect()", 1000);
+            }
+        }
+    </script>
+
+
+    <div class="col-md-6">
+        <div class="p-4 mb-3 bg-light rounded-3">
+            <div class="container-fluid py-4" id="register_row">
+                    <div id="final" class="col-md-12" style="display:none;">
+                            <div class="container">
+                                <h1 class="display-6 fw-bold text-center">Registration Completed</h1>
+                            </div>
+                    </div>
+                    <div class="col-md-6" id="reg_col">
+                            <div class="container">
+                                <center>
+                                    <h1 class="fs-1 fw-bold">Register</h1>
+                                </center>
+                                <p><i>
+                                        <%=(typeof alertMsg!='undefined' )? alertMsg:''%>
+                                    </i></p>
+                                <% if(alertMsg !='undefined' ) { %>
+                                    <% console.log(alertMsg); %>
+                                        <% } %>
+                                            <!-- <p class="lead"> -->
+                                            <form id="regform" name="regform" method="post" action="/register">
+                                                <div class="mb-3">
+                                                    <label for="name" class="form-label fs-4">Name</label>
+                                                    <!-- <small class="form-text text-muted">Name as on your Aadhar Card</small> -->
+                                                    <input type="text" class="form-control" id="name" name="name"
+                                                        placeholder="Name On Your Aadhar Card" required>
+        
+                                                </div>
+                     
+                                                <div class="mb-3">
+                                                    <label for="aadhaar" class="form-label fs-4">Aadhaar No.</label>
+                                                    <input type="number" class="form-control" id="aadhaar" name="aadhaar"
+                                                        placeholder="Enter Your Aadhaar Number" required />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <!-- <br> -->
+                                                    <label for="aadhaar" class="form-label fs-4">Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password"
+                                                        required />
+                                                </div> <!-- <br> -->
+        
+                                                <div class="mb-3">
+                                                    <label for="aadhaar" class="form-label fs-4">Gender</label>
+                                                    <select class="form-select" id="gender" name="gender"
+                                                        required>
+                                                        <option value="Others" selected disabled hidden>
+                                                            Select Your Gender
+                                                        </option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                        <option value="others">Others</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" id="register_btn" class="btn btn-primary btn-lg"
+                                                        onclick="buttonclick();">Submit</button>
+                                                    </div>
+                                                </div>
+                            </div>
+                            </form>
+                            <!-- </p> -->
+                    </div>
+            </div>
+        </div>
+</div>
+
+
+
+    
+    </div>
+    </body>
+
+    </html>

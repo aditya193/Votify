@@ -1,0 +1,15 @@
+<% include header.ejs %>
+<div class="container">
+    <div class="row">
+                    <div class="p-5 mb-4 bg-light rounded-3">
+                        <div class="container-fluid py-2">
+                            <img style="margin: 0 auto; display:block; width: 25%; margin-bottom: 20px;" src="/images/sad.png">
+                            <br><br>
+                          <p class="fs-2 text-center">You are not allowed to vote.</p>
+                          <p class="text-center fs-3"><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
+                        </div>
+                      </div>
+    </div>
+</div>
+</body>
+</html>

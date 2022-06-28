@@ -1,0 +1,49 @@
+<% include header.ejs %>
+  <script>
+
+    function check() {
+      if (document.forms["vtlgn"]["aadhaar"].value == '' || document.forms["vtlgn"]["password"].value == '') {
+        window.alert("Please fill all fields.");
+      }
+      else {
+        document.getElementById('voting').submit();
+      }
+    }
+
+  </script>
+
+<div class="col-md-6">
+  <div class="p-2 mb-3 bg-light rounded-3">
+      <div class="col-md-6" id="reg_col">
+          <div class="container-fluid py-4">
+              <center>
+                  <h1 class="fs-1 fw-bold text-center" id="uploadtext">Voter Login</h1>
+              </center>
+              <br><br>
+              <form id="voting" name="vtlgn" action="/verifyvoter" method="post">
+      
+                  <div class="mb-3">
+                    <label for="aadhaar" class="form-label fs-4">Aadhaar No.</label>
+                    <input type="number" class="form-control" id="aadhaar" name="aadhaar" placeholder="Enter Your Aadhaar Number"
+                      required />
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="aadhaar" class="form-label fs-4">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"
+                      required />
+                  </div>
+
+                  <div class="mb-3">
+                    <br>
+                      <div class="d-grid gap-2">
+                    <button type="button" id="submit_qr" class="btn btn-primary btn-lg"
+                      onclick="check();">Login</button>
+                      </div>
+                  </div>
+          
+                </form>
+              </div>
+              </div>
+  </div>
+</div>
